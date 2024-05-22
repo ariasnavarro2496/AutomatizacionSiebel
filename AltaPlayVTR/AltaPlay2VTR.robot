@@ -1,11 +1,15 @@
 *** Settings ***
+
 Library  SeleniumLibrary
 Library    Dialogs
 Library    Process
+Library    OperatingSystem
 
 
 
 *** Variables ***
+
+${FILE_PATH}   id_actividad.txt
 
 ${username}    skim
 ${password}    skim
@@ -20,7 +24,7 @@ ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
 *** Test Cases ***
-Visitar Siebel
+AltaPlay2VTR
     Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome
 
     Login    
@@ -33,9 +37,9 @@ Visitar Siebel
     Sales Orders - Examine Catalog
     
     
-
 *** Keywords ***
 Login
+
     Input Text    name:SWEUserName    ${username}
     Input Password    name:SWEPassword    ${password}
     Click Element    xpath://*[@id="s_swepi_22"]
@@ -53,16 +57,18 @@ Navigate To Main Page
 
 
 Create New Account
+
     Wait Until Page Contains Element   xpath://*[@id="s_2_1_116_0_Ctrl"]   timeout=${WAIT_TIMEOUT}
     Click Element    xpath://*[@id="s_2_1_116_0_Ctrl"]
     
     
     Sleep    5s  #FALTA AUTOMATIZAR
-    ${result}    Run Process    python   generate.py
+    ${result}    Run Process    python   GeneradorRutAleatoreo/Generador.py
     Input Text     xpath://*[@id="a_2"]/div/table/tbody/tr[3]/td[3]/div/input   ${result.stdout}
     Sleep    5s
 
 Fill Account Information
+
     Click Element   xpath://*[@id="a_2"]/div/table/tbody/tr[4]/td[3]/div/input 
 	Sleep    5s
     
@@ -75,26 +81,23 @@ Fill Account Information
 
 Add Address
 
-
     Wait Until Element Is Visible    xpath://*[@id="sieb-ui-popup-mvg-available"]/form/table/tbody/tr[1]/td[2]/span[4]/input    timeout=${WAIT_TIMEOUT}
     Input Text    xpath://*[@id="sieb-ui-popup-mvg-available"]/form/table/tbody/tr[1]/td[2]/span[4]/input    ${direccion}
     #
-    
     
     Click Element    xpath://*[@id="s_4_1_188_0_Ctrl"]     #CLICK BUSCAR
     Click Element    xpath://*[@id="last_pager_s_4_l"]/span    #SIGUIENTE
     Sleep    7S
     Click Element    xpath://*[@id="1_s_4_l_Street_Address"]    #SELECCIONO DIRECCION
     
-    
     Click Element    xpath://*[@id="s_3_1_185_0_Ctrl"]
     Sleep    5s
     Click Element    xpath://*[@id="s_3_1_189_0_Ctrl"]
+    Sleep     5s
     
-
-
         
 Add Phone Number
+
     Click Element    xpath://*[@id="s_2_1_25_0_icon"]
     Wait Until Element Is Visible    xpath:/html/body/div[8]/div[2]/div/div/div/form/div/table/tbody/tr/td[1]/span[2]/button  timeout=${WAIT_TIMEOUT}
     Click Element    xpath:/html/body/div[8]/div[2]/div/div/div/form/div/table/tbody/tr/td[1]/span[2]/button
@@ -117,6 +120,7 @@ Add Phone Number
     
 
 New Order Record
+
     Wait Until Element Is Visible    xpath://*[@id="1_s_1_l_OCS_Identificador_de_la_cuenta"]/a     timeout=45s
     Click Element    xpath://*[@id="1_s_1_l_OCS_Identificador_de_la_cuenta"]/a
     
@@ -129,6 +133,7 @@ New Order Record
 
 
 Sales Orders - Examine Catalog
+
     Sleep    10s   #CLICK CATALOGO
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[2]/div[2]/ul/li[2]/a  #CLICK RESIDENCIAL
     

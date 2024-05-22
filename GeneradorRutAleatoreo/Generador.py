@@ -7,7 +7,7 @@ import argparse
     
 def calculaDV(rut):
     # Calcula el dígito verificador válido para un RUT
-    rut_str=str(rut)[::-1]  # Invierte el string! Ver http://stackoverflow.com/questions/931092/reverse-a-string-in-python
+    rut_str=str(rut)[::-1]  
     
     # Variables para el cálculo
     multiplicador=2
@@ -97,4 +97,3 @@ for i in range(args.cantidad):
     print(rut)    
     
 
- 

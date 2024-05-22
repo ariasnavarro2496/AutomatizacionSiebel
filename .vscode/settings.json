@@ -1,0 +1,5 @@
+{
+    "[robotframework]": {
+        "editor.defaultFormatter": "robocorp.robotframework-lsp"
+    }
+}
