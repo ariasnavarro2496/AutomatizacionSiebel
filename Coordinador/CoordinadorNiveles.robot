@@ -1,5 +1,4 @@
-#PRIMERA SESION, ASIGNAR TECNICO A LA ACTIVIDAD POR MEDIO DEL 
-COOORDINADOR 
+#COMPLETAR NIVELES
 
 
 *** Settings ***
@@ -15,8 +14,6 @@ ${FILE_PATH}    ID.txt
 
 ${username}    Leandro.ward
 ${password}    Oracle2023.
-
-${technical}    tec0022
 
 
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
@@ -52,36 +49,38 @@ Login
 
 Assign technician
 
-    Sleep    8s    css:input.search-bar-input
+    Sleep    8s     css:input.search-bar-input
     Click Element     css:input.search-bar-input
 
     Sleep    8s
-    ${idActividad}         Get File    ${FILE_PATH}    #ASIGNA VALOR
-    Log    ${idActividad}    
+    ${RutCliente}         Get File    ${FILE_PATH}    #ASIGNA VALOR
+    Log    ${RutCliente}    
     
-    Press Keys     css:input.search-bar-input   ${idActividad}    #ID ACTIVIDAD
+    Press Keys     css:input.search-bar-input   ${RutCliente}    #RUT CLIENTE
     
-    #Press Keys     css:input.search-bar-input        1-91KR7U8
-
+    
     Wait Until Element Is Visible    css:div.global-search-found-item div.activity-title
     Click Element    css:div.global-search-found-item div.activity-title
+
+    Sleep    8s
+    Click Element    xpath://button[@title='Acciones']
+
+    Sleep    8s    #RESULTADOS
+    Click Element    xpath=//span[@class='toolbar-menu-button-title' and text()='Resultados']
+
+    Sleep    7s
+    Click Element    xpath://button[@aria-owns='#list_index_13']    #NIVELES
     
-    Wait Until Element Is Visible    css:button[data-ofsc-id='move_activity']
-    Click Element    css:button[data-ofsc-id='move_activity']
+    Sleep    5s
+    Click Element    xpath://div[@role='option' and @data-value='OK']
 
-    Sleep    8S
-    Click Element    xpath://button[contains(text(),'Continuar')]
+    Sleep    7s
+    Click Element    xpath://button[@aria-owns='#list_index_20']    #FALLAS MASIVAS
 
-    Sleep    8S
-    Click Element    css:div.oj-switch-thumb 
-
-    Sleep    8S
-    Input Text    css:input.oj-inputsearch-input[type='text']    ${technical}
+    Sleep    5s            
+    Click Element    css:div.list-option[data-value='OK']
     
-    Sleep    10S
-    Click Element     xpath://div[@class="resource-main-info"]
+    Sleep    10s 
+    Click Button    xpath://button[text()='OK']
 
-    Sleep    10S
-    Click Element    xpath://button[contains(text(),'Mover')]
-    
-    Pause Execution   
+    Pause Execution

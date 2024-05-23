@@ -10,7 +10,7 @@ Library    OperatingSystem
 
 *** Variables ***  
 
-${FILE_PATH}   id_actividad.txt
+${FILE_PATH}   ID.txt
 
 ${username}    skim
 ${password}    skim
@@ -170,7 +170,7 @@ Sales Orders - Examine Catalog
     Click Element     xpath://*[@id="a_1"]/div/table/tbody/tr[12]/td[6]/div/input    # DEUDA NO VINCULANTE
     Sleep   10s
     Click Element     xpath://*[@id="a_1"]/div/table/tbody/tr[14]/td[4]/div/input    # Pago Upfront Primera Boleta
-    Sleep   5s
+    Sleep   8s
     Click Element     xpath://*[@id="s_1_1_11_0_Ctrl"]  #TSQ
     Sleep   30s
     Click Element     xpath://*[@id="s_1_1_69_0_Ctrl"]    #GENERAR DOCUMENTO  
