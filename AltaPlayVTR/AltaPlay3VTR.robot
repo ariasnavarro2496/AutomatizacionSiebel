@@ -8,8 +8,6 @@ Library    OperatingSystem
 
 *** Variables ***
 
-${FILE_PATH}   id_actividad.txt
-
 ${username}    skim
 ${password}    skim
 ${nombre}    JAIRO
@@ -17,14 +15,16 @@ ${apellido}    ARIAS
 ${direccion}    VARAS MENA
 ${email}    LEONARDO@GMAIL.COM
 ${BUTTON_SELECTOR}    class:siebui-ctrl-btn.appletButton.siebui-icon-change.position.s_1_1_0_0
-${BUTTON_CLIENTESPRIMERNIVEL}    
+
+${FILE_PATH}   ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
 
 *** Test Cases ***
 AltaPlay3VTR
-    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome
+    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome    options=add_argument("--start-maximized")
 
     Login    
     Navigate To Main Page
@@ -147,11 +147,10 @@ Sales Orders - Examine Catalog
 
 
     Wait Until Element Is Visible    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[1]/div[2]/div/div/div/span/table/tbody/tr[1]/td/div/ul/li/ul/li[1]/ul/li[1]/ul/li[1]/a   #TIEMPO DE ESPERA 3PLAY
-
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[1]/div[2]/div/div/div/span/table/tbody/tr[1]/td/div/ul/li/ul/li[1]/ul/li[1]/ul/li[1]/a  #CLICK 3PLAY
 
 
-    Sleep    5S   #CLICK SIGUIENTE PAGINA
+    Sleep    8S   #CLICK SIGUIENTE PAGINA
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[2]/div[3]/div/div/div/form/span/div/div[3]/div/div/div[5]/div/table/tbody/tr/td[2]/table/tbody/tr/td[4]/span
 
 
@@ -183,4 +182,15 @@ Sales Orders - Examine Catalog
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/ul[3]/li[2]   #VISITA TECNICA 
     Sleep    18s
     Click Element    xpath://*[@id="s_1_1_79_0_Ctrl"]   #ENVIAR
-    Pause Execution    
+    Pause Execution 
+    Sleep    5s  
+
+Copy and save to txt file
+
+    ${idActividad}    Get Value     xpath://*[@id="a_2"]/div/table/tbody/tr[3]/td[3]/div/input    #COPIA IDACTIVIDAD
+    Log    ${idActividad}
+    # GUARDA EN ARCHIVO id_actividad.txt
+    Create File    ${FILE_PATH}    ${idActividad}
+    
+    Sleep    10s
+    

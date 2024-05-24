@@ -11,14 +11,13 @@ Library    OperatingSystem
 
 *** Variables ***
 
-${FILE_PATH}    ID.txt
-
 ${username}    Leandro.ward
 ${password}    Oracle2023.
 
 ${technical}    tec0022
 
-
+${FILE_PATH}    ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
@@ -26,7 +25,8 @@ ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 *** Test Cases ***
 Visitar Siebel
 
-    Open Browser   https://vtr4.test.etadirect.com/    browser=chrome    options=add_argument("--incognito")
+    Open Browser   https://vtr4.test.etadirect.com/    browser=chrome    options=add_argument("--incognito --start-maximized")
+    
     Login    
     Assign technician
     
@@ -62,10 +62,11 @@ Assign technician
     Press Keys     css:input.search-bar-input   ${idActividad}    #ID ACTIVIDAD
     
     #Press Keys     css:input.search-bar-input        1-91KR7U8
-
+    Sleep    5s
     Wait Until Element Is Visible    css:div.global-search-found-item div.activity-title
     Click Element    css:div.global-search-found-item div.activity-title
     
+    Sleep    5s
     Wait Until Element Is Visible    css:button[data-ofsc-id='move_activity']
     Click Element    css:button[data-ofsc-id='move_activity']
 

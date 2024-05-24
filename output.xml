@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-24T14:45:30.144749" rpa="false" schemaversion="5">
+<suite id="s1" name="CoorAsignaTecnico" source="c:\Users\Usuario\Desktop\AutomatizacionSiebel\Coordinador\CoorAsignaTecnico.robot">
+<test id="s1-t1" name="Visitar Siebel" line="26">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:30.386394" level="INFO">Opening browser 'chrome' to base url 'https://vtr4.test.etadirect.com/'.</msg>
+<arg>https://vtr4.test.etadirect.com/</arg>
+<arg>browser=chrome</arg>
+<arg>options=add_argument("--incognito --start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-24T14:45:30.386394" elapsed="3.542774"/>
+</kw>
+<kw name="Login">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:45:38.932387" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:45:33.931162" elapsed="5.001225"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:38.933396" level="INFO">Typing text 'Leandro.ward' into text field 'xpath://*[@id="username"]'.</msg>
+<arg>xpath://*[@id="username"]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:45:38.932387" elapsed="0.112214"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:39.044601" level="INFO">Typing password into text field 'xpath://*[@id="password"]'.</msg>
+<msg time="2024-05-24T14:45:39.079514" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:45:39.044601" elapsed="0.172057"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:39.217658" level="INFO">Clicking element 'xpath://*[@id="sign-in"]'.</msg>
+<arg>xpath://*[@id="sign-in"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:45:39.217658" elapsed="1.225370"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:45:50.444196" level="INFO">Slept 10 seconds.</msg>
+<arg>10S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:45:40.443028" elapsed="10.001168"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:50.445209" level="INFO">Clicking element 'xpath://*[@id="delsession"]'.</msg>
+<arg>xpath://*[@id="delsession"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:45:50.444196" elapsed="0.058208"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:45:55.503929" level="INFO">Slept 5 seconds.</msg>
+<arg>5S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:45:50.502404" elapsed="5.001525"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:55.503929" level="INFO">Typing password into text field 'xpath://*[@id="password"]'.</msg>
+<msg time="2024-05-24T14:45:55.541829" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:45:55.503929" elapsed="0.096262"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:45:55.601189" level="INFO">Clicking element 'xpath://*[@id="sign-in"]'.</msg>
+<arg>xpath://*[@id="sign-in"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:45:55.600191" elapsed="2.227210"/>
+</kw>
+<status status="PASS" start="2024-05-24T14:45:33.930168" elapsed="23.897233"/>
+</kw>
+<kw name="Assign technician">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:05.831099" level="INFO">Slept 8 seconds.</msg>
+<msg time="2024-05-24T14:46:05.831099" level="INFO">css:input.search-bar-input</msg>
+<arg>8s</arg>
+<arg>css:input.search-bar-input</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:45:57.829396" elapsed="8.001703"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:05.832102" level="INFO">Clicking element 'css:input.search-bar-input'.</msg>
+<arg>css:input.search-bar-input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:05.831099" elapsed="0.094810"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:13.926213" level="INFO">Slept 8 seconds.</msg>
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:05.925909" elapsed="8.000304"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-05-24T14:46:13.927231" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\Usuario\Desktop\AutomatizacionSiebel\ID.txt"&gt;C:\Users\Usuario\Desktop\AutomatizacionSiebel\ID.txt&lt;/a&gt;'.</msg>
+<msg time="2024-05-24T14:46:13.929225" level="INFO">${idActividad} = 1-91R2M3S</msg>
+<var>${idActividad}</var>
+<arg>${FILE_PATH}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-05-24T14:46:13.926213" elapsed="0.003012"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-24T14:46:13.930222" level="INFO">1-91R2M3S</msg>
+<arg>${idActividad}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-24T14:46:13.929225" elapsed="0.000997"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:13.931222" level="INFO">Sending key(s) ('1-91R2M3S',) to css:input.search-bar-input element.</msg>
+<msg time="2024-05-24T14:46:14.231831" level="INFO">Sending keys 1-91R2M3S</msg>
+<arg>css:input.search-bar-input</arg>
+<arg>${idActividad}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-05-24T14:46:13.931222" elapsed="0.369325"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:19.300707" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:14.300547" elapsed="5.000160"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:div.global-search-found-item div.activity-title</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-24T14:46:19.300707" elapsed="0.025465"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:19.327169" level="INFO">Clicking element 'css:div.global-search-found-item div.activity-title'.</msg>
+<arg>css:div.global-search-found-item div.activity-title</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:19.327169" elapsed="0.066891"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:24.395435" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:19.395058" elapsed="5.000377"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:button[data-ofsc-id='move_activity']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-24T14:46:24.395435" elapsed="0.021043"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:24.417511" level="INFO">Clicking element 'css:button[data-ofsc-id='move_activity']'.</msg>
+<arg>css:button[data-ofsc-id='move_activity']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:24.417511" elapsed="0.046139"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:32.465007" level="INFO">Slept 8 seconds.</msg>
+<arg>8S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:24.463650" elapsed="8.001357"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:32.466012" level="INFO">Clicking element 'xpath://button[contains(text(),'Continuar')]'.</msg>
+<arg>xpath://button[contains(text(),'Continuar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:32.465007" elapsed="0.134953"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:40.600139" level="INFO">Slept 8 seconds.</msg>
+<arg>8S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:32.599960" elapsed="8.000179"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:40.600139" level="INFO">Clicking element 'css:div.oj-switch-thumb'.</msg>
+<arg>css:div.oj-switch-thumb</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:40.600139" elapsed="0.092275"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:48.693953" level="INFO">Slept 8 seconds.</msg>
+<arg>8S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:40.693410" elapsed="8.000543"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:48.694992" level="INFO">Typing text 'tec0022' into text field 'css:input.oj-inputsearch-input[type='text']'.</msg>
+<arg>css:input.oj-inputsearch-input[type='text']</arg>
+<arg>${technical}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:48.693953" elapsed="0.129306"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:46:58.823882" level="INFO">Slept 10 seconds.</msg>
+<arg>10S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:48.823764" elapsed="10.000118"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:46:58.823882" level="INFO">Clicking element 'xpath://div[@class="resource-main-info"]'.</msg>
+<arg>xpath://div[@class="resource-main-info"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-24T14:46:58.823882" elapsed="0.061361"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-24T14:47:08.887354" level="INFO">Slept 10 seconds.</msg>
+<arg>10S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-24T14:46:58.886240" elapsed="10.001114"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-24T14:47:08.887354" level="INFO">Clicking element 'xpath://button[contains(text(),'Mover')]'.</msg>
+<msg time="2024-05-24T14:47:10.080206" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-24T14:47:10.081203" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button class="button submit" data-bind="
+                        css: {processing: loading},
+                        fastClick: submitDisabled() ? null : confirmAssign,
+                        disable: submitDisabled,
+                        text: i18n(processOwnerOnly() ? 16089/*Reorder*/ : 16266/*Move*/)
+                    " disabled="true"&gt;...&lt;/button&gt; is not clickable at point (1203, 528). Other element would receive the click: &lt;div class="jbf-form-actions"&gt;...&lt;/div&gt;
+  (Session info: chrome=125.0.6422.76)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7393A1F22+60322]
+	(No symbol) [0x00007FF73931CE99]
+	(No symbol) [0x00007FF7391D7EBA]
+	(No symbol) [0x00007FF73922F32E]
+	(No symbol) [0x00007FF73922CCF2]
+	(No symbol) [0x00007FF73922A18B]
+	(No symbol) [0x00007FF739229356]
+	(No symbol) [0x00007FF73921B491]
+	(No symbol) [0x00007FF73924C21A]
+	(No symbol) [0x00007FF73921ADB6]
+	(No symbol) [0x00007FF73924C430]
+	(No symbol) [0x00007FF73926BC80]
+	(No symbol) [0x00007FF73924BFC3]
+	(No symbol) [0x00007FF739219617]
+	(No symbol) [0x00007FF73921A211]
+	GetHandleVerifier [0x00007FF7396B946D+3301613]
+	GetHandleVerifier [0x00007FF739703693+3605267]
+	GetHandleVerifier [0x00007FF7396F9410+3563664]
+	GetHandleVerifier [0x00007FF7394542F6+790390]
+	(No symbol) [0x00007FF7393274DF]
+	(No symbol) [0x00007FF7393233D4]
+	(No symbol) [0x00007FF739323562]
+	(No symbol) [0x00007FF739312F6F]
+	BaseThreadInitThunk [0x00007FFF33BB257D+29]
+	RtlUserThreadStart [0x00007FFF3486AA48+40]
+</msg>
+<arg>xpath://button[contains(text(),'Mover')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-24T14:47:08.887354" elapsed="1.199834">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button class="button submit" data-bind="
+                        css: {processing: loading},
+                        fastClick: submitDisabled() ? null : confirmAssign,
+                        disable: submitDisabled,
+                        text: i18n(processOwnerOnly() ? 16089/*Reorder*/ : 16266/*Move*/)
+                    " disabled="true"&gt;...&lt;/button&gt; is not clickable at point (1203, 528). Other element would receive the click: &lt;div class="jbf-form-actions"&gt;...&lt;/div&gt;
+  (Session info: chrome=125.0.6422.76)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7393A1F22+60322]
+	(No symbol) [0x00007FF73931CE99]
+	(No symbol) [0x00007FF7391D7EBA]
+	(No symbol) [0x00007FF73922F32E]
+	(No symbol) [0x00007FF73922CCF2]
+	(No symbol) [0x00007FF73922A18B]
+	(No symbol) [0x00007FF739229356]
+	(No symbol) [0x00007FF73921B491]
+	(No symbol) [0x00007FF73924C21A]
+	(No symbol) [0x00007FF73921ADB6]
+	(No symbol) [0x00007FF73924C430]
+	(No symbol) [0x00007FF73926BC80]
+	(No symbol) [0x00007FF73924BFC3]
+	(No symbol) [0x00007FF739219617]
+	(No symbol) [0x00007FF73921A211]
+	GetHandleVerifier [0x00007FF7396B946D+3301613]
+	GetHandleVerifier [0x00007FF739703693+3605267]
+	GetHandleVerifier [0x00007FF7396F9410+3563664]
+	GetHandleVerifier [0x00007FF7394542F6+790390]
+	(No symbol) [0x00007FF7393274DF]
+	(No symbol) [0x00007FF7393233D4]
+	(No symbol) [0x00007FF739323562]
+	(No symbol) [0x00007FF739312F6F]
+	BaseThreadInitThunk [0x00007FFF33BB257D+29]
+	RtlUserThreadStart [0x00007FFF3486AA48+40]
+</status>
+</kw>
+<kw name="Pause Execution" owner="Dialogs">
+<doc>Pauses execution until user clicks ``Ok`` button.</doc>
+<status status="NOT RUN" start="2024-05-24T14:47:10.087188" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-05-24T14:45:57.828398" elapsed="72.259787">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button class="button submit" data-bind="
+                        css: {processing: loading},
+                        fastClick: submitDisabled() ? null : confirmAssign,
+                        disable: submitDisabled,
+                        text: i18n(processOwnerOnly() ? 16089/*Reorder*/ : 16266/*Move*/)
+                    " disabled="true"&gt;...&lt;/button&gt; is not clickable at point (1203, 528). Other element would receive the click: &lt;div class="jbf-form-actions"&gt;...&lt;/div&gt;
+  (Session info: chrome=125.0.6422.76)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7393A1F22+60322]
+	(No symbol) [0x00007FF73931CE99]
+	(No symbol) [0x00007FF7391D7EBA]
+	(No symbol) [0x00007FF73922F32E]
+	(No symbol) [0x00007FF73922CCF2]
+	(No symbol) [0x00007FF73922A18B]
+	(No symbol) [0x00007FF739229356]
+	(No symbol) [0x00007FF73921B491]
+	(No symbol) [0x00007FF73924C21A]
+	(No symbol) [0x00007FF73921ADB6]
+	(No symbol) [0x00007FF73924C430]
+	(No symbol) [0x00007FF73926BC80]
+	(No symbol) [0x00007FF73924BFC3]
+	(No symbol) [0x00007FF739219617]
+	(No symbol) [0x00007FF73921A211]
+	GetHandleVerifier [0x00007FF7396B946D+3301613]
+	GetHandleVerifier [0x00007FF739703693+3605267]
+	GetHandleVerifier [0x00007FF7396F9410+3563664]
+	GetHandleVerifier [0x00007FF7394542F6+790390]
+	(No symbol) [0x00007FF7393274DF]
+	(No symbol) [0x00007FF7393233D4]
+	(No symbol) [0x00007FF739323562]
+	(No symbol) [0x00007FF739312F6F]
+	BaseThreadInitThunk [0x00007FFF33BB257D+29]
+	RtlUserThreadStart [0x00007FFF3486AA48+40]
+</status>
+</kw>
+<status status="FAIL" start="2024-05-24T14:45:30.384400" elapsed="99.704781">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button class="button submit" data-bind="
+                        css: {processing: loading},
+                        fastClick: submitDisabled() ? null : confirmAssign,
+                        disable: submitDisabled,
+                        text: i18n(processOwnerOnly() ? 16089/*Reorder*/ : 16266/*Move*/)
+                    " disabled="true"&gt;...&lt;/button&gt; is not clickable at point (1203, 528). Other element would receive the click: &lt;div class="jbf-form-actions"&gt;...&lt;/div&gt;
+  (Session info: chrome=125.0.6422.76)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7393A1F22+60322]
+	(No symbol) [0x00007FF73931CE99]
+	(No symbol) [0x00007FF7391D7EBA]
+	(No symbol) [0x00007FF73922F32E]
+	(No symbol) [0x00007FF73922CCF2]
+	(No symbol) [0x00007FF73922A18B]
+	(No symbol) [0x00007FF739229356]
+	(No symbol) [0x00007FF73921B491]
+	(No symbol) [0x00007FF73924C21A]
+	(No symbol) [0x00007FF73921ADB6]
+	(No symbol) [0x00007FF73924C430]
+	(No symbol) [0x00007FF73926BC80]
+	(No symbol) [0x00007FF73924BFC3]
+	(No symbol) [0x00007FF739219617]
+	(No symbol) [0x00007FF73921A211]
+	GetHandleVerifier [0x00007FF7396B946D+3301613]
+	GetHandleVerifier [0x00007FF739703693+3605267]
+	GetHandleVerifier [0x00007FF7396F9410+3563664]
+	GetHandleVerifier [0x00007FF7394542F6+790390]
+	(No symbol) [0x00007FF7393274DF]
+	(No symbol) [0x00007FF7393233D4]
+	(No symbol) [0x00007FF739323562]
+	(No symbol) [0x00007FF739312F6F]
+	BaseThreadInitThunk [0x00007FFF33BB257D+29]
+	RtlUserThreadStart [0x00007FFF3486AA48+40]
+</status>
+</test>
+<status status="FAIL" start="2024-05-24T14:45:30.148738" elapsed="99.947426"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="CoorAsignaTecnico">CoorAsignaTecnico</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -9,11 +9,12 @@ Library    OperatingSystem
 
 *** Variables ***  
 
-${FILE_PATH}   ID.txt
-
 ${username}    skim
 ${password}    skim
 ${BUTTON_SELECTOR}    class:siebui-ctrl-btn.appletButton.siebui-icon-change.position.s_1_1_0_0 
+
+${FILE_PATH}   ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
@@ -21,7 +22,7 @@ ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 *** Test Cases ***
 AltaPlay1VTR
 
-    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    browser=chrome    options=add_argument("--incognito")
+    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    browser=chrome    options=add_argument("--incognito --start-maximized")
 
     Login    
     Navigate To Main Page
@@ -43,7 +44,7 @@ Navigate To Main Page
     Sleep    10s
     Click Element    xpath://*[@id="s_sctrl_tabScreen"]/ul/li[2]
 
-    Wait Until Page Contains Element   xpath:/html/body/div[1]/div/div[4]/div/div/div[1]/div[2]/ul/li[2]   timeout=${WAIT_TIMEOUT}
+    Sleep    15s
     Click Element    xpath://*[@id="s_sctrl_tabView"]/ul/li[2]
 
     Sleep    22s
@@ -54,6 +55,7 @@ Navigate To Main Page
     ${RutCliente}         Get File    ${FILE_PATH}    #ASIGNA VALOR
     Log    ${RutCliente}    
     
+    Sleep    5s
     Input Text    id:1_OCS_Rut     ${RutCliente}    
     Sleep    3s
     Press Keys    id:1_OCS_Rut    ENTER

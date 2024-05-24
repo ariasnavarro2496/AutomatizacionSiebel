@@ -13,13 +13,14 @@ ${username}    tec0022
 ${password}    Oracle@123
 
 ${FILE_PATH}   ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
 
 *** Test Cases ***
 Visitar Siebel
-    Open Browser    https://vtr4.test.etadirect.com/    browser=chrome    options=add_argument("--incognito")
+    Open Browser    https://vtr4.test.etadirect.com/    browser=chrome    options=add_argument("--incognito --start-maximized")
 
     Login    
     Start Activity
@@ -75,7 +76,8 @@ Start Activity
     Sleep    8s
     Click Element    xpath://button[@title="Aprovisionar"]    #APROVISIONAR
     Sleep    8s
-
+    #CAPTURE DE PANTALLA
+    Capture Page Screenshot    ${SCREENSHOT_DIR}/captura4.png
 
     #Click Element    xpath=//input[@value="Aprovisionar"]    #FALTA CAPTURAR
     Pause Execution

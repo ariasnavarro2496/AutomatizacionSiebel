@@ -9,8 +9,6 @@ Library    OperatingSystem
 
 *** Variables ***
 
-${FILE_PATH}   id_actividad.txt
-
 ${username}    skim
 ${password}    skim
 ${nombre}    JAIRO
@@ -18,14 +16,16 @@ ${apellido}    ARIAS
 ${direccion}    VARAS MENA
 ${email}    LEONARDO@GMAIL.COM
 ${BUTTON_SELECTOR}    class:siebui-ctrl-btn.appletButton.siebui-icon-change.position.s_1_1_0_0
-${BUTTON_CLIENTESPRIMERNIVEL}    
+
+${FILE_PATH}   ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
 
 *** Test Cases ***
 AltaPlay2VTR
-    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome
+    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome    options=add_argument("--start-maximized")
 
     Login    
     Navigate To Main Page
@@ -35,11 +35,12 @@ AltaPlay2VTR
     Add Phone Number
     New Order Record
     Sales Orders - Examine Catalog
+    Copy and save to txt file
     
     
 *** Keywords ***
 Login
-
+    Sleep    5s
     Input Text    name:SWEUserName    ${username}
     Input Password    name:SWEPassword    ${password}
     Click Element    xpath://*[@id="s_swepi_22"]
@@ -62,7 +63,7 @@ Create New Account
     Click Element    xpath://*[@id="s_2_1_116_0_Ctrl"]
     
     
-    Sleep    5s  #FALTA AUTOMATIZAR
+    Sleep    10s  #FALTA AUTOMATIZAR
     ${result}    Run Process    python   GeneradorRutAleatoreo/Generador.py
     Input Text     xpath://*[@id="a_2"]/div/table/tbody/tr[3]/td[3]/div/input   ${result.stdout}
     Sleep    5s
@@ -91,10 +92,11 @@ Add Address
     Click Element    xpath://*[@id="1_s_4_l_Street_Address"]    #SELECCIONO DIRECCION
     
     Click Element    xpath://*[@id="s_3_1_185_0_Ctrl"]
-    Sleep    5s
+    Sleep    10s
     Click Element    xpath://*[@id="s_3_1_189_0_Ctrl"]
-    Sleep     5s
-    
+    Sleep     10s
+    #CAPTURE DE PANTALLA
+    Capture Page Screenshot    ${SCREENSHOT_DIR}/captura1.png
         
 Add Phone Number
 
@@ -146,15 +148,14 @@ Sales Orders - Examine Catalog
 
 
     Wait Until Element Is Visible    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[1]/div[2]/div/div/div/span/table/tbody/tr[1]/td/div/ul/li/ul/li[1]/ul/li[1]/ul/li[2]/a    #TIEMPO DE ESPERA 2PLAY
-
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[1]/div[2]/div/div/div/span/table/tbody/tr[1]/td/div/ul/li/ul/li[1]/ul/li[1]/ul/li[2]/a    #CLICK 2PLAY
 
 
-    Sleep    5S   #CLICK SIGUIENTE PAGINA
+    Sleep    8S   #CLICK SIGUIENTE PAGINA
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[2]/div[3]/div/div/div/form/span/div/div[3]/div/div/div[5]/div/table/tbody/tr/td[2]/table/tbody/tr/td[4]/span
 
 
-    Sleep    5S   #CLICK SIGUIENTE  PAGINA
+    Sleep    8S   #CLICK SIGUIENTE  PAGINA
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/div/div[1]/div/div[3]/div[2]/div[3]/div/div/div/form/span/div/div[3]/div/div/div[5]/div/table/tbody/tr/td[2]/table/tbody/tr/td[4]/span
 
 
@@ -171,13 +172,13 @@ Sales Orders - Examine Catalog
     Click Element     xpath://*[@id="a_1"]/div/table/tbody/tr[12]/td[6]/div/input    # DEUDA NO VINCULANTE
     Sleep   10s
     Click Element     xpath://*[@id="a_1"]/div/table/tbody/tr[14]/td[4]/div/input    # Pago Upfront Primera Boleta
-    Sleep   5s
+    Sleep   8s
     Click Element     xpath://*[@id="s_1_1_11_0_Ctrl"]  #TSQ
     Sleep   30s
     Click Element     xpath://*[@id="s_1_1_69_0_Ctrl"]    #GENERAR DOCUMENTO  
     Sleep    10s
     Switch Window    MAIN   #DEVUELVE A LA PAGINA PRINCIPAL
-    Sleep    6s
+    Sleep    10s
     Pause Execution  
     Wait Until Element Is Visible      xpath://*[@id="s_1_1_37_0_icon"]   timeout=40s
     Click Element    xpath://*[@id="s_1_1_37_0_icon"]
@@ -185,4 +186,15 @@ Sales Orders - Examine Catalog
     Click Element    xpath:/html/body/div[1]/div/div[5]/div/div[7]/ul[3]/li[2]   #VISITA TECNICA 
     Sleep    18s
     Click Element    xpath://*[@id="s_1_1_79_0_Ctrl"]   #ENVIAR
-    Pause Execution    
+    Pause Execution 
+    Sleep    5s  
+    
+Copy and save to txt file
+
+    ${idActividad}    Get Value     xpath://*[@id="a_2"]/div/table/tbody/tr[3]/td[3]/div/input    #COPIA IDACTIVIDAD
+    Log    ${idActividad}
+    # GUARDA EN ARCHIVO id_actividad.txt
+    Create File    ${FILE_PATH}    ${idActividad}
+    
+    Sleep    10s
+    

@@ -10,8 +10,6 @@ Library    OperatingSystem
 
 *** Variables ***  
 
-${FILE_PATH}   ID.txt
-
 ${username}    skim
 ${password}    skim
 ${nombre}    JAIRO
@@ -19,7 +17,9 @@ ${apellido}    ARIAS
 ${direccion}    VARAS MENA
 ${email}    LEONARDO@GMAIL.COM
 ${BUTTON_SELECTOR}    class:siebui-ctrl-btn.appletButton.siebui-icon-change.position.s_1_1_0_0
-${BUTTON_CLIENTESPRIMERNIVEL}    
+
+${FILE_PATH}   ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
@@ -27,7 +27,7 @@ ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 *** Test Cases ***
 AltaPlay1VTR
 
-    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome
+    Open Browser    http://172.17.227.70:2080/ecommunications_VTR_esn/start.swe?SWECmd=Login&SWECM=S&SRN=&SWEHo=172.17.227.70    Chrome    options=add_argument("--start-maximized")
 
     Login    
     Navigate To Main Page
@@ -81,6 +81,7 @@ Fill Account Information
     Sleep    3s
     Input Text    xpath://*[@id="a_2"]/div/table/tbody/tr[5]/td[3]/div/input    ${apellido}
     Input Text    xpath://*[@id="a_2"]/div/table/tbody/tr[5]/td[5]/div/input    ${email}
+    
 
     Click Element    xpath://*[@id="s_2_1_124_0_icon"]
 
@@ -101,7 +102,9 @@ Add Address
     Click Element    xpath://*[@id="s_3_1_189_0_Ctrl"]
     Sleep     10s
 
-
+    #CAPTURE DE PANTALLA
+    Capture Page Screenshot    ${SCREENSHOT_DIR}/captura1.png
+    
 Add Phone Number
 
     Click Element    xpath://*[@id="s_2_1_25_0_icon"]
@@ -194,6 +197,7 @@ Copy and save to txt file
     Log    ${idActividad}
     # GUARDA EN ARCHIVO id_actividad.txt
     Create File    ${FILE_PATH}    ${idActividad}
+    
     Sleep    10s
     
     

@@ -10,12 +10,12 @@ Library    OperatingSystem
 
 *** Variables ***
 
-${FILE_PATH}    ID.txt
-
 ${username}    Leandro.ward
 ${password}    Oracle2023.
 
 
+${FILE_PATH}    ID.txt
+${SCREENSHOT_DIR}    Evidencia\screenshots
 ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 
 
@@ -23,7 +23,7 @@ ${WAIT_TIMEOUT}    45s  # Cambiar el tiempo de espera a 45 segundos
 *** Test Cases ***
 Visitar Siebel
 
-    Open Browser   https://vtr4.test.etadirect.com/    browser=chrome    options=add_argument("--incognito")
+    Open Browser   https://vtr4.test.etadirect.com/    browser=chrome    options=add_argument("--incognito --start-maximized")
     Login    
     Assign technician
     
@@ -34,12 +34,21 @@ Login
     Sleep    5s
     Input Text    xpath://*[@id="username"]    ${username}
 
-    Input Password     xpath://*[@id="password"]    ${password}
-    Click Element    xpath://*[@id="sign-in"]
-    Sleep    10S
+    
+    #CAPTURE DE PANTALLA
+    Capture Page Screenshot    ${SCREENSHOT_DIR}/captura2.png    
 
+    Input Password     xpath://*[@id="password"]    ${password}
+    #CAPTURE DE PANTALLA
+    Capture Page Screenshot    ${SCREENSHOT_DIR}/captura3.png
+
+    Click Element    xpath://*[@id="sign-in"]
+    
+    Sleep    10S
     Click Element    xpath://*[@id="delsession"]
-    Sleep    5S
+    
+
+    
     
     Input Password     xpath://*[@id="password"]    ${password}
     Click Element    xpath://*[@id="sign-in"]
@@ -57,6 +66,9 @@ Assign technician
     Log    ${RutCliente}    
     
     Press Keys     css:input.search-bar-input   ${RutCliente}    #RUT CLIENTE
+    #CAPTURE DE PANTALLA
+    Capture Page Screenshot    ${SCREENSHOT_DIR}/captura3.png
+    Sleep    5S
     
     
     Wait Until Element Is Visible    css:div.global-search-found-item div.activity-title
